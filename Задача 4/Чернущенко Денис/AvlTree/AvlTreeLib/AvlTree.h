@@ -24,7 +24,7 @@ private:
     static Node* FindMinNode(Node* treeRoot);
     static Node* RemoveMinKey(Node* treeRoot);
     static Node* RemoveKey(Node* treeRoot, int removedKey);
-    static void TraverseTree(Node* treeRoot, std::vector<int>& vector);
+    static void TraverseTree(Node* treeRoot, std::vector<Node*>& vector);
     static void PrintTree(const std::string& prefix, const Node* node, bool isLeft);
 };
 

@@ -2,7 +2,11 @@
 
 AvlTree::~AvlTree()
 {
-    delete root;
+    std::vector<Node*> sortedNodes;
+    TraverseTree(root, sortedNodes);
+
+    for (Node* node : sortedNodes)
+        delete node;
 }
 
 void AvlTree::Insert(int key)
@@ -17,13 +21,17 @@ void AvlTree::Remove(int key)
 
 std::vector<int> AvlTree::GetKeys()
 {
-    std::vector<int> sortedKeys;
-    TraverseTree(root, sortedKeys);
+    std::vector<Node*> sortedNodes;
+    TraverseTree(root, sortedNodes);
+
+    std::vector<int> sortedKeys(sortedNodes.size());
+    for (int i = 0; i < sortedKeys.size(); ++i)
+        sortedKeys[i] = sortedNodes[i]->key;
 
     return sortedKeys;
 }
 
-void AvlTree::TraverseTree(Node* treeRoot, std::vector<int>& vector)
+void AvlTree::TraverseTree(Node* treeRoot, std::vector<Node*>& vector)
 {
     while (true)
     {
@@ -31,7 +39,7 @@ void AvlTree::TraverseTree(Node* treeRoot, std::vector<int>& vector)
 
         TraverseTree(treeRoot->leftSubtree, vector);
 
-        vector.push_back(treeRoot->key);
+        vector.push_back(treeRoot);
 
         treeRoot = treeRoot->rightSubtree;
     }
