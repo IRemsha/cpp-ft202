@@ -58,10 +58,21 @@ public:
 };
 
 class Obj {
+	int a;
+
 public:
-	int b;
-	Obj(int a) {
-		b = a;
+	Obj(int b) {
+		a = b;
+		printf("New Object %d\n", a);
+	}
+	int Get()
+	{
+		printf("Get Object %d\n", a);
+		return a;
+	}
+	~Obj()
+	{
+		printf("Deleted Object %d\n", a);
 	}
 };
 
@@ -72,5 +83,5 @@ int main()
 	SmartPtr<Obj> P2;
 	P2.Set(new Obj(2));
 	P1 = P2;
-	printf("%d", P1.Get().b);
+	P1.Get().Get();
 }
