@@ -1,13 +1,12 @@
-
-#include <iostream>
-#include <string>
-#include <conio.h>
+#include <iostream> 
+#include <string> 
+#include <conio.h> 
 
 using namespace std;
 
 template<class T>
 class SmartPointer {
-	
+
 
 private:
 	T* instance;
@@ -76,32 +75,31 @@ public:
 
 	T& operator * () const {
 		return *get();
-	}	
-	
+	}
+
 	int getPointersCount() {
 		return counter ? *counter : -1;
 	}
 
 };
-class Test {
-public:
-	std::string str() {
-		return "test str";
-	}
-};
+
 
 
 
 int main(int argc, const char * argv[]) {
 
-	SmartPointer<Test> pointer = new Test();
-	SmartPointer<Test> pointer2 = pointer;
-	cout << pointer.get()->str() << endl;
-	cout << pointer2->str() << endl;
-	cout << pointer.get()->str() << endl;
-	cout << pointer2->str() << endl;
 
-	_getch();
+
+	SmartPointer<int> pointer(new int(2048));
+	cout « pointer.get() « endl;
+	auto pointer1 = pointer;
+	cout « pointer1.get() « endl;
+	SmartPointer<int> pointer2(pointer);
+	cout « pointer2.get() « endl;
+	SmartPointer<int> pointer3(new int(175));
+	cout« pointer3.get() « endl;
+	pointer.release();
+	cout « pointer1.get() « " " « pointer3.get() « endl;
 
 	return 0;
 }
