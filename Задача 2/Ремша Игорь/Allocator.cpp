@@ -1,4 +1,4 @@
-﻿#include "pch.h"
+#include "pch.h"
 #include <iostream>
 
 using namespace std;
@@ -127,13 +127,29 @@ public:
 
 int main()
 {
-	Allocator* alloc = new Allocator(64);
-	void* result1 = alloc->Alloc(8);
-	void* result2 = alloc->Alloc(8);
-	void* result3 = alloc->Alloc(16);
-	alloc->Free(result2);
-	alloc->Free(result3);
-	alloc->Free(result1);
-	alloc->Dump();
+
+	Allocator* allocator = new Allocator(1024);
+
+	auto mem1 = allocator.Alloc(512);
+	allocator->Dump();
+	auto mem2 = allocator.Alloc(120);
+	allocator->dump();
+	auto mem3 = allocator.Alloc(120);
+	allocator->Dump();
+	auto mem4 = allocator.Alloc(120);
+	allocator->Dump();
+	auto mem5 = allocator.Alloc(120);
+	allocator->Dump();
+
+	auto intPtr = (int*)allocator.Alloc(4);
+	*intPtr = 999;
+	cout << *intPtr << endl; 
+
+	allocator.Free(mem3);
+	allocator->Dump();
+	allocator.Free(mem4);
+	allocator->Dump();
+	allocator.Free(mem2);
+	allocator->Dump();
 	return 0;
 }
