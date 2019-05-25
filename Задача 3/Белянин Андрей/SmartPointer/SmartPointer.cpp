@@ -17,9 +17,9 @@ public:
 		count = new int(1);
 	}
 
-	TValue* Get()
+	TValue Get()
 	{
-		return value;
+		return *value;
 	}
 
 	void Release()
@@ -32,10 +32,8 @@ public:
 		{
 			delete value;
 			delete count;
+			value = 0;
 		}
-
-		value = nullptr;
-		count = nullptr;
 	}
 
 	TValue operator*() const
@@ -66,14 +64,14 @@ int main()
 {
 	SmartPointer<int> pointer;
 	pointer.Set(new int(10));
-	cout << *pointer.Get() << endl;
+	cout << pointer.Get() << endl;
 
 	SmartPointer<int> pointer2 = pointer;
-	cout << *pointer2.Get() << endl;
+	cout << pointer2.Get() << endl;
 
 	pointer.Release();
-	cout << *pointer.Get() << endl;
-	cout << *pointer2.Get() << endl;
+	cout << pointer.Get() << endl;
+	cout << pointer2.Get() << endl;
 
 	return 0;
 };
