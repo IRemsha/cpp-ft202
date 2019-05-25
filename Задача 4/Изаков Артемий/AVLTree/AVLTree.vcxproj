@@ -20,9 +20,9 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{8FF2DF9B-60B8-4DAA-B49B-9D2DAE921802}</ProjectGuid>
+    <ProjectGuid>{1C17D27D-F6B0-4887-8DE3-57CC0F064390}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>AWLTree</RootNamespace>
+    <RootNamespace>AVLTree</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -151,12 +151,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="AWLTree.cpp" />
-    <ClCompile Include="awl_tree.cpp" />
+    <ClCompile Include="AVLTree.cpp" />
+    <ClCompile Include="avl_tree.cpp" />
     <ClCompile Include="node.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="awl_tree.h" />
+    <ClInclude Include="avl_tree.h" />
     <ClInclude Include="node.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

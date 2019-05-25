@@ -140,9 +140,9 @@ void node::print(const string& prefix, const bool is_left, const bool is_first) 
 			new_prefix += " ";
 		new_prefix += "         ";
 	}
-	
+
 	cout << value << endl;
-	
+
 	if (left)
 		left->print(new_prefix, true);
 	if (right)

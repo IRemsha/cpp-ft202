@@ -1,5 +1,5 @@
 ﻿#include <iostream>
-#include "awl_tree.h"
+#include "avl_tree.h"
 
 using namespace std;
 
@@ -8,7 +8,7 @@ void print_header(const string& header)
 	cout << "\n------===| " + header + " |===------\n";
 }
 
-void show_insert(awl_tree& tree)
+void show_insert(avl_tree& tree)
 {
 	print_header("inserting 0 to 9");
 
@@ -19,7 +19,7 @@ void show_insert(awl_tree& tree)
 	print_header("inserting done");
 }
 
-void show_remove(awl_tree& tree)
+void show_remove(avl_tree & tree)
 {
 	print_header("removing 3, 4, 5, 9, 0");
 
@@ -43,7 +43,7 @@ void show_balance()
 
 int main()
 {
-	auto tree = awl_tree();
+	auto tree = avl_tree();
 
 	show_balance();
 	cout << "\n\n\n\n";
